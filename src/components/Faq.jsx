@@ -11,28 +11,22 @@ export function Faq() {
   }, []);
 
   return (
-    <div style={{ marginTop: '40px' }}>
-      <h2 style={{ color: '#2e7d32' }}>Perguntas Frequentes (FAQ)</h2>
+    <section style={{ marginBottom: '40px' }}>
+      <h2 className="section-title">Perguntas Frequentes (FAQ)</h2>
       {faqs.length === 0 ? (
-        <p style={{ color: '#888' }}>Nenhuma pergunta cadastrada no momento.</p>
+        <p style={{ color: '#718096' }}>Nenhuma pergunta cadastrada.</p>
       ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '15px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
           {faqs.map((item) => (
-            <div
-              key={item.id_faq || item.id}
-              style={{
-                backgroundColor: '#ffffff',
-                padding: '15px',
-                borderRadius: '8px',
-                border: '1px solid #c8e6c9',
-              }}
-            >
-              <h4 style={{ color: '#1b5e20', margin: '0 0 8px 0' }}>{item.pergunta}</h4>
-              <p style={{ margin: 0, color: '#444' }}>{item.resposta}</p>
+            <div key={item.id_faq || item.id} className="card">
+              <h4 style={{ color: '#1b5e20', fontSize: '1.05rem', marginBottom: '8px' }}>
+                {item.pergunta}
+              </h4>
+              <p style={{ margin: 0, color: '#4a5568', fontSize: '0.95rem' }}>{item.resposta}</p>
             </div>
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 }

@@ -11,39 +11,29 @@ export function CanaisApoio() {
   }, []);
 
   return (
-    <div style={{ marginTop: '40px' }}>
-      <h2 style={{ color: '#2e7d32' }}>Canais de Apoio e Ajuda</h2>
+    <section style={{ marginBottom: '40px' }}>
+      <h2 className="section-title">Canais de Apoio e Ajuda</h2>
       {canais.length === 0 ? (
-        <p style={{ color: '#888' }}>Nenhum canal de apoio cadastrado no momento.</p>
+        <p style={{ color: '#718096' }}>Nenhum canal de apoio cadastrado.</p>
       ) : (
-        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '15px' }}>
+        <div className="grid-cards">
           {canais.map((canal) => (
-            <div
-              key={canal.id_canal || canal.id}
-              style={{
-                backgroundColor: '#ffffff',
-                padding: '15px',
-                borderRadius: '8px',
-                border: '1px solid #c8e6c9',
-                minWidth: '250px',
-                maxWidth: '300px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                textAlign: 'left'
-              }}
-            >
-              <h3 style={{ color: '#1b5e20', marginTop: 0 }}>
-                {canal.nome || canal.nome_canal || canal.titulo || 'Canal de Apoio'}
-              </h3>
+            <div key={canal.id_canal || canal.id} className="card">
+              <h3>{canal.nome || canal.nome_canal || canal.titulo || 'Canal de Apoio'}</h3>
               {(canal.telefone || canal.contato) && (
-                <p><strong>Telefone/Contato:</strong> {canal.telefone || canal.contato}</p>
+                <p style={{ fontSize: '0.9rem', marginBottom: '6px' }}>
+                  <strong>Telefone/Contato:</strong> {canal.telefone || canal.contato}
+                </p>
               )}
               {(canal.descricao || canal.endereco) && (
-                <p><strong>Info:</strong> {canal.descricao || canal.endereco}</p>
+                <p style={{ fontSize: '0.9rem', color: '#555' }}>
+                  {canal.descricao || canal.endereco}
+                </p>
               )}
             </div>
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 }

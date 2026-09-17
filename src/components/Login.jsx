@@ -18,7 +18,6 @@ export function Login({ onLoginSuccess }) {
 
       if (response.ok) {
         const data = await response.json();
-        // Salva o token de acesso no LocalStorage
         localStorage.setItem('accessToken', data.access);
         localStorage.setItem('refreshToken', data.refresh);
         onLoginSuccess();
@@ -31,34 +30,32 @@ export function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div style={{ maxWidth: '350px', margin: '30px auto', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #ccc' }}>
-      <h3 style={{ color: '#2e7d32', marginTop: 0 }}>Área de Gestão - Login</h3>
+    <div className="card" style={{ maxWidth: '400px', margin: '0 auto 30px auto' }}>
+      <h3 style={{ marginBottom: '15px' }}>Área de Gestão - Login</h3>
       <form onSubmit={handleLogin}>
-        <div style={{ marginBottom: '10px', textAlign: 'left' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Usuário:</label>
+        <div style={{ marginBottom: '12px' }}>
+          <label style={{ display: 'block', fontSize: '0.9rem', marginBottom: '4px' }}>Usuário</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+            style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid #cbd5e0' }}
             required
           />
         </div>
-        <div style={{ marginBottom: '15px', textAlign: 'left' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Senha:</label>
+        <div style={{ marginBottom: '16px' }}>
+          <label style={{ display: 'block', fontSize: '0.9rem', marginBottom: '4px' }}>Senha</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+            style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid #cbd5e0' }}
             required
           />
         </div>
-        <button type="submit" style={{ width: '100%', padding: '10px', backgroundColor: '#2e7d32', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-          Entrar
-        </button>
+        <button type="submit" className="btn-primary" style={{ width: '100%' }}>Entrar</button>
       </form>
-      {erro && <p style={{ color: 'red', marginTop: '10px', fontSize: '0.9rem' }}>{erro}</p>}
+      {erro && <p style={{ color: '#e53e3e', marginTop: '10px', fontSize: '0.85rem' }}>{erro}</p>}
     </div>
   );
 }
