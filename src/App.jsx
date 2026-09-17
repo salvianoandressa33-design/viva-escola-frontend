@@ -3,6 +3,7 @@ import { FormRelato } from './components/FormRelato';
 import { Faq } from './components/Faq';
 import { CanaisApoio } from './components/CanaisApoio';
 import { Login } from './components/Login';
+import { AdminPanel } from './components/AdminPanel';
 
 function App() {
   const [conteudos, setConteudos] = useState([]);
@@ -44,17 +45,14 @@ function App() {
         </div>
       </header>
 
-      {/* Login ou Painel */}
-      {!isLoggedIn ? (
-        <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+      {/* Se logado, exibe a Central de Administração */}
+      {isLoggedIn ? (
+        <AdminPanel />
       ) : (
-        <div className="card" style={{ marginBottom: '30px', backgroundColor: '#e8f5e9', borderColor: '#a5d6a7' }}>
-          <h3>Painel de Controle do Gestor</h3>
-          <p style={{ color: '#2e7d32' }}>Acesso total para gestão de conteúdos e relatos recebidos.</p>
-        </div>
+        <Login onLoginSuccess={() => setIsLoggedIn(true)} />
       )}
 
-      {/* Módulos */}
+      {/* Módulos Públicos */}
       <FormRelato />
       <CanaisApoio />
       <Faq />

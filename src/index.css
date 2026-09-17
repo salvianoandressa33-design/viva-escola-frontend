@@ -118,3 +118,47 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
 }
+
+/* Botão Secundário para as Abas da Admin */
+.btn-secondary {
+  background-color: #e2e8f0;
+  color: #2d3748;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #cbd5e0;
+}
+
+/* Campos de entrada da Administração */
+.admin-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e0;
+  font-size: 0.9rem;
+}
+
+/* Tabelas da Administração */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.admin-table th, .admin-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #f7fafc;
+  color: #2e7d32;
+  font-weight: 600;
+}
